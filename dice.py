@@ -1,4 +1,4 @@
-import random
+import random	# For randomizing sides
 
 class Dice(object):
 	"""Holds dice information"""

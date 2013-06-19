@@ -3,20 +3,30 @@
 ####################
 
 import dice
+import player
 
 dice_list = [dice.Dice() for i in range(6)]
 
-print "How many players?"
-number_of_players = input()
+### Set up players ###
+number_of_players = input("How many players? ")
+player_list = []
+for i in range(number_of_players):
+	player_list.append(player.Player(raw_input("What is player "+str(i+1)+"'s name?\n")))
+	print player_list[0].name
 
-player_list = [p]
 
-for i in range(6):
-	print dice_list[i].roll()
-
+### Set up variables for game play ###
 game_over = False
 
+
+##########
+## GAME ##
+##########
 while not game_over:
-	
-	print "hi"
+	for i in range(6):
+		print dice_list[i].roll()
+
 	game_over = True
+	for i in range(6):
+		if dice_list[i].current_side != 6:
+			game_over = False
