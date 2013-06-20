@@ -22,11 +22,29 @@ game_over = False
 ##########
 ## GAME ##
 ##########
-while not game_over:
-	for i in range(6):
-		print dice_list[i].roll()
 
-	game_over = True
+def choosing_dice(dice_list):	# Sets aside any dice that are pulled out.
+	tempList = raw_input("Which dice would you like to pull out? ")
+	dice_to_keep = map(int, tempList.split())
+ 
+	for i in range(len(dice_to_keep)):
+		for j in range(len(dice_list)):
+			if dice_list[j].current_side == dice_to_keep[i]:
+				dice_list[j].set_aside = True
+				break
+
+current_player = 0
+while not game_over:
+	print player_list[current_player].name+"'s turn."
+
+	print "\n=== Roll ==="
 	for i in range(6):
-		if dice_list[i].current_side != 6:
-			game_over = False
+		if not dice_list[i].set_aside:
+			print dice_list[i].roll()
+		else:
+			print dice_list[i].current_side
+
+	choosing_dice(dice_list)
+
+
+

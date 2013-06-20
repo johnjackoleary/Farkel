@@ -4,11 +4,27 @@
 		"selected_items":
 		[
 			[
-				"di",
-				"dice"
+				"curr",
+				"current_side"
+			],
+			[
+				"choo",
+				"choosing_dice"
 			],
 			[
 				"dice",
+				"dice_list"
+			],
+			[
+				"ra",
+				"raw_input"
+			],
+			[
+				"play",
+				"player_list"
+			],
+			[
+				"di",
 				"dice_list"
 			],
 			[
@@ -17,10 +33,6 @@
 			],
 			[
 				"ran",
-				"rangeEnd"
-			],
-			[
-				"ra",
 				"rangeEnd"
 			],
 			[
@@ -247,7 +259,7 @@
 			"file": "game.py",
 			"settings":
 			{
-				"buffer_size": 168,
+				"buffer_size": 1089,
 				"line_ending": "Unix"
 			}
 		},
@@ -255,7 +267,15 @@
 			"file": "dice.py",
 			"settings":
 			{
-				"buffer_size": 276,
+				"buffer_size": 319,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "player.py",
+			"settings":
+			{
+				"buffer_size": 136,
 				"line_ending": "Unix"
 			}
 		}
@@ -353,6 +373,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"i",
+			"dice_list",
 			"possibleSides",
 			"findHoughLines_Prob",
 			"rangeStart",
@@ -447,15 +469,15 @@
 					"file": "game.py",
 					"settings":
 					{
-						"buffer_size": 168,
+						"buffer_size": 1089,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								159,
-								159
+								466,
+								466
 							]
 						],
 						"settings":
@@ -473,15 +495,41 @@
 					"file": "dice.py",
 					"settings":
 					{
-						"buffer_size": 276,
+						"buffer_size": 319,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								44,
-								44
+								107,
+								107
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "player.py",
+					"settings":
+					{
+						"buffer_size": 136,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								135,
+								135
 							]
 						],
 						"settings":
