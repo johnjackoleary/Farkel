@@ -6,4 +6,4 @@ A Farkel Game for practice, primarily.
 
 Run game.py to play the game.
 
-Uses classes of Dice and Player
+Uses classes of Dice and Player.

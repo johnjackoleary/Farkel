@@ -4,28 +4,84 @@
 		"selected_items":
 		[
 			[
-				"curr",
-				"current_side"
+				"choo",
+				"choosen_dice"
 			],
 			[
-				"choo",
-				"choosing_dice"
+				"F",
+				"False"
+			],
+			[
+				"cho",
+				"choosen_dice"
+			],
+			[
+				"ch",
+				"choosen_dice"
+			],
+			[
+				"cu",
+				"current_side"
 			],
 			[
 				"dice",
 				"dice_list"
 			],
 			[
-				"ra",
-				"raw_input"
+				"v",
+				"valid_entry"
+			],
+			[
+				"dic",
+				"dice_list"
+			],
+			[
+				"di",
+				"dice_aside"
+			],
+			[
+				"r",
+				"range"
 			],
 			[
 				"play",
 				"player_list"
 			],
 			[
-				"di",
-				"dice_list"
+				"th",
+				"this_rounds_score"
+			],
+			[
+				"cur",
+				"current_score"
+			],
+			[
+				"curre",
+				"current_score"
+			],
+			[
+				"dice_",
+				"dice_to_keep"
+			],
+			[
+				"game",
+				"game_over"
+			],
+			[
+				"fina",
+				"final_round_countdown"
+			],
+			[
+				"ply",
+				"player_list"
+			],
+			[
+				"curr",
+				"current_side"
+			],
+			[
+				"ra",
+				"raw_input"
 			],
 			[
 				"fin",
@@ -259,7 +315,7 @@
 			"file": "game.py",
 			"settings":
 			{
-				"buffer_size": 1089,
+				"buffer_size": 4311,
 				"line_ending": "Unix"
 			}
 		},
@@ -373,6 +429,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"dice_list",
+			"temp_score",
+			"choosen_dice",
+			"current_player",
+			"[].",
 			"i",
 			"dice_list",
 			"possibleSides",
@@ -469,23 +530,24 @@
 					"file": "game.py",
 					"settings":
 					{
-						"buffer_size": 1089,
+						"buffer_size": 4311,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								466,
-								466
+								1359,
+								1359
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 458.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -502,8 +564,8 @@
 						"selection":
 						[
 							[
-								107,
-								107
+								166,
+								153
 							]
 						],
 						"settings":

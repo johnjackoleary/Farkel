@@ -23,6 +23,9 @@ game_over = False
 ## GAME ##
 ##########
 def check_validity_of_selection(choosen_dice):
+	if len(choosen_dice) == 0:
+		return False
+
 	for i in range(len(choosen_dice)):
 		if choosen_dice[i] > 6 or choosen_dice[i] < 1:
 			return False
@@ -38,7 +41,6 @@ def check_validity_of_selection(choosen_dice):
 		if amounts_of_dice[0][i] < amounts_of_dice[1][i]:
 			return False
 
-
 	return True;
 
 ## This needs to be seriously flushed out
@@ -52,9 +54,18 @@ def score_dice(choosen_dice):
 
 	
 	for i in range(6):
+		if amounts_of_dice[i] == 6:
+			if i == 0:
+				running_score += 1000*2
+			else:
+				running_score += (i+1)*100*2
+			amounts_of_dice[i] = amounts_of_dice[i] - 6
 		if amounts_of_dice[i] >= 3:
-			running_score += 1000
-			amounts_of_dice[i] = 0
+			if i == 0:
+				running_score += 1000
+			else:
+				running_score += (i+1)*100
+			amounts_of_dice[i] = amounts_of_dice[i] - 3
 
 	running_score += 100*amounts_of_dice[0]
 	running_score += 50*amounts_of_dice[4]
