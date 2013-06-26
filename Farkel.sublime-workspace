@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"choosen",
+				"choosen_dice"
+			],
+			[
 				"choo",
 				"choosen_dice"
 			],
@@ -315,7 +319,7 @@
 			"file": "game.py",
 			"settings":
 			{
-				"buffer_size": 4311,
+				"buffer_size": 4591,
 				"line_ending": "Unix"
 			}
 		},
@@ -530,15 +534,15 @@
 					"file": "game.py",
 					"settings":
 					{
-						"buffer_size": 4311,
+						"buffer_size": 4591,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1359,
-								1359
+								1301,
+								1301
 							]
 						],
 						"settings":
@@ -547,7 +551,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 458.0,
+						"translation.y": 617.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
