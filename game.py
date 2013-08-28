@@ -55,15 +55,20 @@ def score_dice(choosen_dice):
 	## Check for special patterns
 	groupsOfThree = 0;
 	groupsOfTwo = 0;
+	straight = 0;
 	for i in range(6):
 		if amounts_of_dice[i] == 3:
 			groupsOfThree += 1
 		if amounts_of_dice[i] == 2:
 			groupsOfTwo += 1
+		if amounts_of_dice[i] == 1:
+			straight += 1;
 	# Add this in later
 	if groupsOfThree == 2:
 		pass
 	elif groupsOfTwo == 3:
+		pass
+	elif straight == 6:
 		pass
 
 	for i in range(6):
