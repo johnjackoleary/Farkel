@@ -1,4 +1,4 @@
-Farkle
+Farkel
 ======
 
-A simple Farkle-based python game.
+A simple Farkel-based python game.
