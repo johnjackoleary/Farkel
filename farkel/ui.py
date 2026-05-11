@@ -121,6 +121,19 @@ def prompt_keep():
     return input("> ").strip()
 
 
+def prompt_bank_or_roll(turn_total, dice_remaining):
+    print(f"  Turn total: {turn_total}.  Dice to roll: {dice_remaining}.")
+    while True:
+        raw = input("(b)ank or (r)oll? > ").strip().lower()
+        if raw in ("b", "bank"):
+            return "bank"
+        if raw in ("r", "roll"):
+            return "roll"
+        if raw in ("q", "quit"):
+            raise SystemExit
+        print("  Please answer 'b' to bank or 'r' to roll.")
+
+
 def invalid_selection(reason):
     print(f"  ! {reason}")
     print()

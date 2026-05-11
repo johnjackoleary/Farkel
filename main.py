@@ -7,19 +7,18 @@ def setup_players(mode):
     players = []
     if mode == "1":
         n = 0
-        while n < 2:
+        while not 2 <= n <= 6:
             try:
                 n = int(input("How many human players? (2-6) ").strip())
-                if not 2 <= n <= 6:
-                    raise ValueError
             except ValueError:
+                n = 0
+            if not 2 <= n <= 6:
                 print("  Please enter a number between 2 and 6.")
         for i in range(n):
             name = input(f"Player {i+1} name: ").strip() or f"Player {i+1}"
             players.append(Player(name))
     else:
-        name = input("Your name: ").strip() or "Player"
-        players.append(Player(name))
+        players.append(Player("Player"))
         print("AI difficulty:  1=Easy  2=Medium  3=Hard")
         diff_map = {"1": AIPlayer.DIFFICULTY_EASY,
                     "2": AIPlayer.DIFFICULTY_MEDIUM,

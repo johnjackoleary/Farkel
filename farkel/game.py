@@ -92,15 +92,21 @@ def play_human_turn(player, dice, players, round_num):
             pts = score_dice(chosen)
             _apply_kept(dice, chosen)
             turn_score += pts
+            print(f"  Kept {chosen} for {pts} pts. Turn total: {turn_score}")
 
-            # Hot dice check
+            # Hot dice: rules force a re-roll of all six.
             if all(d.set_aside for d in dice):
                 ui.hot_dice_message()
                 _reset_dice(dice)
+                break  # outer loop re-rolls all six
 
-            # After keeping, ask bank or roll
-            print(f"  Kept {chosen} for {pts} pts. Turn total: {turn_score}")
-            break  # back to outer roll loop
+            # Otherwise let the player choose: bank now or roll the rest.
+            remaining = sum(1 for d in dice if not d.set_aside)
+            decision = ui.prompt_bank_or_roll(turn_score, remaining)
+            if decision == "bank":
+                ui.bank_message(player.name, turn_score, player.total_score + turn_score)
+                return turn_score, False
+            break  # roll remaining dice
 
 
 def play_ai_turn(player, dice, players, round_num):

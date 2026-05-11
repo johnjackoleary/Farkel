@@ -82,16 +82,54 @@ def _score_counts(counts):
     return score
 
 
+def all_dice_score(dice):
+    """True iff every die in `dice` contributes to a scoring combination.
+
+    A die is "scoring" if it's a 1, a 5, part of a 3+-of-a-kind, or part
+    of one of the six-dice special combos (straight, three pairs, two
+    triplets, four-of-a-kind + pair). Pairs of 2/3/4/6 are NOT scoring on
+    their own — that's the rule the old validator missed.
+    """
+    if not dice:
+        return False
+
+    counts = Counter(dice)
+    total_dice = sum(counts.values())
+
+    if total_dice == 6:
+        values = sorted(counts.keys())
+        if set(values) == {1, 2, 3, 4, 5, 6}:
+            return True
+        if len(values) == 3 and all(counts[v] == 2 for v in values):
+            return True
+        if len(values) == 2 and all(counts[v] == 3 for v in values):
+            return True
+        for v in values:
+            if counts[v] == 4:
+                others = [x for x in values if x != v]
+                if len(others) == 1 and counts[others[0]] == 2:
+                    return True
+
+    for face, n in counts.items():
+        if face in (1, 5):
+            continue
+        if n < 3:
+            return False
+    return True
+
+
 def all_scoring_subsets(dice):
     """
-    Return all unique subsets of dice (as sorted tuples) that score > 0,
-    along with their scores. Each subset must keep only scorable dice.
+    Return all unique subsets of dice (as sorted tuples) where every die
+    contributes to scoring, along with their scores.
     """
     results = {}
     for size in range(1, len(dice) + 1):
         for combo in combinations(range(len(dice)), size):
             subset = tuple(sorted(dice[i] for i in combo))
             if subset in results:
+                continue
+            if not all_dice_score(list(subset)):
                 continue
             s = score_dice(list(subset))
             if s > 0:
@@ -122,5 +160,8 @@ def validate_selection(rolled, chosen):
 
     if score_dice(list(chosen)) == 0:
         return False, "That selection scores zero points — choose scoring dice."
+
+    if not all_dice_score(chosen):
+        return False, "Every die you keep must be part of a scoring combination."
 
     return True, ""
