@@ -29,6 +29,23 @@ def decide(turn_score, pts, dice_left):
     return "roll", roll_ev
 
 
+def show_bank_or_roll_advice(turn_score, dice_remaining):
+    """Compare banking now vs rolling `dice_remaining` more dice."""
+    action, _ = decide(turn_score, 0, dice_remaining)
+    bank_ev = turn_score
+    roll_ev = _ev(turn_score, dice_remaining)
+    fp = _farkle_probability(dice_remaining)
+    print()
+    print("═" * WIDTH)
+    print(" ADVISOR ".center(WIDTH, "═"))
+    print("═" * WIDTH)
+    print(f"  Bank now ............ {bank_ev:>6,} pts")
+    print(f"  Roll {dice_remaining} dice ......... EV {roll_ev:>5.0f}   Farkle {fp*100:>3.0f}%")
+    print(f"  Recommendation ...... {action.upper()}")
+    print("═" * WIDTH)
+    print()
+
+
 def show_advice(rolled, turn_score):
     """Print the advisor table for a given roll and current turn score."""
     subsets = all_scoring_subsets(rolled)

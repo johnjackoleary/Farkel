@@ -1,6 +1,6 @@
 from .dice import Dice
 from .scoring import score_dice, all_scoring_subsets, is_farkle, validate_selection
-from .advisor import show_advice
+from .advisor import show_advice, show_bank_or_roll_advice
 from . import ui
 
 WIN_SCORE = 10_000
@@ -102,11 +102,16 @@ def play_human_turn(player, dice, players, round_num):
 
             # Otherwise let the player choose: bank now or roll the rest.
             remaining = sum(1 for d in dice if not d.set_aside)
-            decision = ui.prompt_bank_or_roll(turn_score, remaining)
-            if decision == "bank":
-                ui.bank_message(player.name, turn_score, player.total_score + turn_score)
-                return turn_score, False
-            break  # roll remaining dice
+            while True:
+                decision = ui.prompt_bank_or_roll(turn_score, remaining)
+                if decision == "advisor":
+                    show_bank_or_roll_advice(turn_score, remaining)
+                    continue
+                if decision == "bank":
+                    ui.bank_message(player.name, turn_score, player.total_score + turn_score)
+                    return turn_score, False
+                break  # roll remaining dice
+            break  # exit input loop, outer loop re-rolls
 
 
 def play_ai_turn(player, dice, players, round_num):
